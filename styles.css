@@ -1,0 +1,145 @@
+:root {
+    --maple: #d8a45f;
+    --maple-seam: #c8914a;
+    --paint: #1d2f5c;
+    --line: #fbf8ef;
+    --miss: #a63a2f;
+    --hit: #2f7a4d;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 3rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 1.05rem;
+    color: var(--paint);
+    background-color: var(--maple);
+    /* hardwood floorboards */
+    background-image: repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 76px,
+        var(--maple-seam) 76px,
+        var(--maple-seam) 78px
+    );
+}
+
+/* Heading block */
+section {
+    width: 100%;
+    max-width: 34rem;
+    text-align: center;
+}
+
+section h2 {
+    margin: 0 0 0.5rem;
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    font-size: clamp(1.9rem, 6vw, 2.8rem);
+    line-height: 1.1;
+    color: var(--paint);
+}
+
+section p {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Form: painted court-line panel */
+form {
+    width: 100%;
+    max-width: 34rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    background: var(--paint);
+    border: 4px solid var(--line);
+    border-radius: 0.5rem;
+    outline: 4px solid var(--paint);
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    font: inherit;
+    color: var(--paint);
+    background: var(--line);
+    border: 2px solid transparent;
+    border-radius: 0.35rem;
+}
+
+form input[type="text"]::placeholder {
+    color: #6b7794;
+}
+
+form input[type="text"]:focus-visible,
+form input[type="button"]:focus-visible {
+    outline: 3px solid var(--maple);
+    outline-offset: 2px;
+}
+
+form input[type="button"] {
+    padding: 0.8rem 1rem;
+    font: inherit;
+    font-weight: 600;
+    color: var(--paint);
+    background: var(--maple);
+    border: 0;
+    border-radius: 0.35rem;
+    cursor: pointer;
+}
+
+form input[type="button"]:hover {
+    background: #e6b878;
+}
+
+form input[type="button"]:active {
+    background: var(--maple-seam);
+}
+
+/* Result message */
+#output {
+    width: 100%;
+    max-width: 34rem;
+}
+
+#output:empty {
+    display: none;
+}
+
+#output > div {
+    padding: 1rem 1.25rem;
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--line);
+    background: var(--miss);
+    border-radius: 0.5rem;
+}
+
+/* Congrats message turns green */
+#output > div.hit {
+    background: var(--hit);
+}
+
+@media (min-width: 560px) {
+    form {
+        flex-direction: row;
+    }
+
+    form input[type="text"] {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+}
